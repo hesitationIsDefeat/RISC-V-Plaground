@@ -3,9 +3,9 @@
 This document lists the general-purpose and special-purpose registers in RISC-V.
 
 ## General-Purpose Registers (GPRs)
-| Name  | Alias | Purpose | 
-|-------|-------|---------| 
-| x0    | zero  | Hardwired to 0 | 
+| Name  | Alias | Purpose |
+|-------|-------|---------|
+| x0    | zero  | Hardwired to 0 |
 | x1    | ra    | Return address |
 | x2    | sp    | Stack pointer |
 | x3    | gp    | Global pointer |
@@ -39,17 +39,18 @@ This document lists the general-purpose and special-purpose registers in RISC-V.
 | x31   | t6    | Temporary register 6 |
 
 ### In Depth Explanations
-| Alias | Explanation | 
-|-------|---------| 
+| Alias | Explanation |
+|-------|------------|
 | zero  | Contains the value 0 all the time. Can be used in the process of loading an immediate value to another register or can be used as the return register to discard an unwanted value. |
-| ra    | Holds the return address that will be returned to after the execution of the called funtion ends. |
+| ra    | Holds the return address that will be returned to after the execution of the called function ends. |
 | sp    | Holds the end address of the stack memory. Allows allocating stack memory and reading from it. |
 | gp    | Holds the start address of Small Data Section or Small BSS Section, where frequently accessed global or static data are stored. Used to access these data by offsets. |
-| tp    | Holds the start address of Thread Control Block or Thread-Local Storage for a given thread, thread specific-data is stored. Used to access these data by offsets. |
-| fp | 
-| t(i)    | Can be used to store a temporary values. Caller-saved. |
+| tp    | Holds the start address of Thread Control Block or Thread-Local Storage for a given thread. Thread-specific data is stored here. Used to access these data by offsets. |
+| fp/s0 | Used as a frame pointer to help with accessing local variables in stack frames when debugging or when stack frames are not optimized away. |
+| t(i)  | Can be used to store temporary values. Caller-saved. |
 
 **Caller-saved**: Any value in it must be stored before calling a function, if the value is required to stay the same after the function ends.
+
 **Callee-saved**: Any value in it must be stored inside of the called function, if the value is required to stay the same after the function ends.
 
 ## Special Registers
@@ -59,4 +60,12 @@ This document lists the general-purpose and special-purpose registers in RISC-V.
 | f0-f31 | Floating-Point Registers |
 | csr   | Control and Status Registers (various) |
 
+### In Depth Explanations
+| Name  | Explanation |
+|-------|------------|
+| pc    | The Program Counter (PC) holds the memory address of the next instruction to be executed. It increments automatically after each instruction fetch unless modified by a jump or branch instruction. |
+| f0-f31 | These are 32 floating-point registers used for floating-point arithmetic operations. They store single-precision (32-bit) and double-precision (64-bit) floating-point values depending on the floating-point extension of the RISC-V ISA. |
+| csr   | Control and Status Registers (CSR) store various system control and status information, including privilege levels, exception handling, and performance monitoring. Some common CSR registers include `mstatus` (machine status), `mtvec` (machine trap-vector base address), and `mepc` (machine exception program counter). |
+
 ---
+

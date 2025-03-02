@@ -21,6 +21,8 @@ If you're also fascinated by **how computers truly work**, you're in the right p
 
 📖 **Documentation**  
 - 📝 [`registers.md`](registers.md) – A detailed list of general-purpose and special registers in RISC-V.  
+- 📝 [`modules.md`](modules.md) – A comprehensive breakdown of all RISC-V modules and extensions.  
+- 📝 [`instruction_types.md`](instruction_types.md) – An in-depth explanation of RISC-V instruction types and pseudo-instructions.  
 
 🛠 **Projects & Experiments** *(coming soon!)*  
 - 🏗️ Writing and running custom RISC-V assembly programs  
@@ -62,4 +64,5 @@ This repository is a **work in progress**, and contributions are welcome! Feel f
 ## 🏁 Let's RISC it!  
 RISC-V is **the future of computing**, and this repo is my journey into **becoming a CPU architect**.  
 
-**💾 Keep grinding, keep learning! 🧑‍💻**  
+**💾 Keep grinding, keep learning! 🧑‍💻**
+
