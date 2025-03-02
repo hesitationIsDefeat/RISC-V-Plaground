@@ -3,9 +3,9 @@
 This document lists the general-purpose and special-purpose registers in RISC-V.
 
 ## General-Purpose Registers (GPRs)
-| Name  | Alias | Purpose |
-|-------|-------|---------|
-| x0    | zero  | Hardwired to 0 |
+| Name  | Alias | Purpose | 
+|-------|-------|---------| 
+| x0    | zero  | Hardwired to 0 | 
 | x1    | ra    | Return address |
 | x2    | sp    | Stack pointer |
 | x3    | gp    | Global pointer |
@@ -37,6 +37,20 @@ This document lists the general-purpose and special-purpose registers in RISC-V.
 | x29   | t4    | Temporary register 4 |
 | x30   | t5    | Temporary register 5 |
 | x31   | t6    | Temporary register 6 |
+
+### In Depth Explanations
+| Alias | Explanation | 
+|-------|---------| 
+| zero  | Contains the value 0 all the time. Can be used in the process of loading an immediate value to another register or can be used as the return register to discard an unwanted value. |
+| ra    | Holds the return address that will be returned to after the execution of the called funtion ends. |
+| sp    | Holds the end address of the stack memory. Allows allocating stack memory and reading from it. |
+| gp    | Holds the start address of Small Data Section or Small BSS Section, where frequently accessed global or static data are stored. Used to access these data by offsets. |
+| tp    | Holds the start address of Thread Control Block or Thread-Local Storage for a given thread, thread specific-data is stored. Used to access these data by offsets. |
+| fp | 
+| t(i)    | Can be used to store a temporary values. Caller-saved. |
+
+**Caller-saved**: Any value in it must be stored before calling a function, if the value is required to stay the same after the function ends.
+**Callee-saved**: Any value in it must be stored inside of the called function, if the value is required to stay the same after the function ends.
 
 ## Special Registers
 | Name  | Purpose |
